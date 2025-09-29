@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muna Extra Class</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  /* Navbar */
+  .navbar-custom {
+    background: linear-gradient(120deg, #ff8a00, #e52e71);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .navbar-nav .nav-link:hover, .navbar-nav .active {
+    color: #fff200 !important;
+  }
+  .full-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 15px;
+    position: relative;
+    text-align: center;
+  }
+  header.full-screen {
+    background: url('https://images.unsplash.com/photo-1596496052584-4d4be7f06f30?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+    color: white;
+  }
+  header.full-screen h1, header.full-screen p {
+    animation: fadeInDown 1s ease-in-out;
+  }
+  @keyframes fadeInDown {
+    0% {opacity:0; transform:translateY(-50px);}
+    100% {opacity:1; transform:translateY(0);}
+  }
+  .btn-primary {
+    background: linear-gradient(90deg,#e52e71,#ff8a00);
+    border:none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .text-center h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .text-center h2::after {
+    content:'';
+    width:60px;
+    height:4px;
+    background:#e52e71;
+    display:block;
+    margin:10px auto 0;
+    border-radius:2px;
+  }
+  .counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e52e71;
+    margin-bottom: 10px;
+  }
+  .carousel-item p {
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+  #scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: #e52e71;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  #scrollTopBtn:hover {
+    transform: scale(1.2);
+    background-color: #ff8a00;
+  }
+  section {
+    padding: 80px 15px;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  .study-card {
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .study-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+  .progress-circle {
+    width:120px; height:120px; border-radius:50%; background:#f1f1f1; display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .progress-circle span {
+    position:absolute; font-weight:bold; color:#e52e71;
+  }
+  .accordion .card-header button {
+    color: #e52e71;
+    font-weight: bold;
+  }
+  .footer-social i {
+    font-size: 18px;
+    transition: transform 0.3s;
+  }
+  .footer-social i:hover {
+    transform: scale(1.3);
+    color:#ff8a00;
+  }
+  .whatsapp-btn {
+    background-color:#25D366;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    margin-top:10px;
+    transition: transform 0.3s;
+  }
+  .whatsapp-btn:hover {
+    transform: scale(1.05);
+  }
+  .download-btn {
+    background: #ff8a00;
+    color:white;
+    border:none;
+    padding:8px 16px;
+    border-radius:5px;
+    transition: transform 0.3s;
+  }
+  .download-btn:hover {
+    transform: scale(1.1);
+    background:#e52e71;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <a class="navbar-brand text-white font-weight-bold" href="#">Muna Extra Class</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:white;"></i></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="#services">Our Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="#study">Study Materials</a></li>
+      <li class="nav-item"><a class="nav-link" href="#stats">Our Impact</a></li>
+      <li class="nav-item"><a class="nav-link" href="#practice">Online Practice</a></li>
+      <li class="nav-item"><a class="nav-link" href="#book">Book a Class</a></li>
+      <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="full-screen" style="margin-top: 56px;">
+  <h1>Welcome to Muna Extra Class</h1>
+  <p class="lead">Helping students excel through extra learning</p>
+  <a href="#book" class="btn btn-primary btn-lg mt-3">Book Your Class Now</a>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="container text-center">
+  <h2>Our Services</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-chalkboard-teacher fa-3x text-warning mb-3"></i>
+        <h5>Qualified Tutors</h5>
+        <p>Professional tutors for all subjects and levels with real-time guidance.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-laptop fa-3x text-info mb-3"></i>
+        <h5>Online Lessons</h5>
+        <p>Interactive online lessons available 24/7 for flexible learning.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-book fa-3x text-success mb-3"></i>
+        <h5>Study Materials</h5>
+        <p>High-quality resources, notes, and exercises to enhance learning.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-video fa-3x text-danger mb-3"></i>
+        <h5>Video Tutorials</h5>
+        <p>Step-by-step video tutorials for better understanding of concepts.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-comments fa-3x text-primary mb-3"></i>
+        <h5>Live Chat Support</h5>
+        <p>Get instant help and feedback from tutors via live chat.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 shadow-sm">
+        <i class="fas fa-certificate fa-3x text-warning mb-3"></i>
+        <h5>Certification</h5>
+        <p>Receive certificates after completing practice sessions successfully.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Study Materials Section -->
+<section id="study" class="bg-light container text-center">
+  <h2>Study Materials</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card study-card p-4">
+        <i class="fas fa-file-alt fa-3x text-danger mb-3"></i>
+        <h5>PDF Notes</h5>
+        <p>Downloadable notes for all subjects and grades.</p>
+        <button class="download-btn">Download</button>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card study-card p-4">
+        <i class="fas fa-puzzle-piece fa-3x text-success mb-3"></i>
+        <h5>Practice Exercises</h5>
+        <p>Engaging exercises to strengthen your skills.</p>
+        <button class="download-btn">Download</button>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card study-card p-4">
+        <i class="fas fa-poll-h fa-3x text-primary mb-3"></i>
+        <h5>Past Papers</h5>
+        <p>Access previous years’ papers and improve exam readiness.</p>
+        <button class="download-btn">Download</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section id="stats" class="container text-center">
+  <h2>Our Impact</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="progress-circle"><span class="counter" data-target="1500">0</span></div>
+      <p>Students Helped</p>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="progress-circle"><span class="counter" data-target="200">0</span></div>
+      <p>Subjects Covered</p>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="progress-circle"><span class="counter" data-target="120">0</span></div>
+      <p>Professional Tutors</p>
+    </div>
+  </div>
+</section>
+
+<!-- Online Practice Section -->
+<section id="practice" class="container text-center">
+  <h2>Online Practice</h2>
+  <div class="embed-responsive embed-responsive-16by9 w-100">
+    <video controls class="embed-responsive-item">
+      <source src="assets/sample_lesson.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- Booking Form Section -->
+<section id="book" class="container text-center">
+  <h2>Book a Class</h2>
+  <form id="bookingForm" class="w-100" style="max-width: 700px; margin:auto;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="email" class="form-control" id="email" placeholder="Email" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="whatsapp" placeholder="WhatsApp Number" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <select id="school" class="form-control">
+          <option selected>School / University</option>
+          <option>High School</option>
+          <option>University</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <select id="grade" class="form-control">
+          <option selected>Grade / Year</option>
+          <option>Grade 8</option>
+          <option>Grade 9</option>
+          <option>Grade 10</option>
+          <option>Grade 11</option>
+          <option>Grade 12</option>
+          <option>University Year 1</option>
+          <option>University Year 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="subject" placeholder="Subject of Interest" required>
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" id="comments" rows="3" placeholder="Additional Comments"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    <button type="button" class="whatsapp-btn" onclick="alert('Simulating WhatsApp request')">Request Call / WhatsApp</button>
+  </form>
+  <div id="formMessage" class="mt-3"></div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="container text-center">
+  <h2>FAQ</h2>
+  <div class="accordion w-100" id="accordionExample" style="max-width: 800px; margin:auto;">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
+            How do I book a class?
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+        <div class="card-body">Fill out the booking form above with all required details.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
+            Are the classes online or in-person?
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+        <div class="card-body">All classes are conducted online for safety and convenience.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">
+            Do you provide study materials?
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+        <div class="card-body">Yes, we provide PDF notes, exercises, and past papers for practice.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="bg-light container text-center">
+  <h2>What Our Students Say</h2>
+  <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <p>"Muna Extra Class helped me improve my grades in Math within 3 months!"</p>
+        <small>- Thabo, Grade 11</small>
+      </div>
+      <div class="carousel-item">
+        <p>"The tutors are amazing and very supportive. Highly recommended!"</p>
+        <small>- Lerato, University Student</small>
+      </div>
+      <div class="carousel-item">
+        <p>"Flexible online lessons made it easy to study while working."</p>
+        <small>- Sipho, Adult Learner</small>
+      </div>
+      <div class="carousel-item">
+        <p>"The study materials are comprehensive and easy to follow."</p>
+        <small>- Nandi, Grade 12</small>
+      </div>
+      <div class="carousel-item">
+        <p>"I love the interactive exercises, they really help me understand concepts."</p>
+        <small>- Kwezi, Grade 10</small>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+    </a>
+    <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+    </a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="container text-center">
+  <h2>About Us</h2>
+  <p>Muna Extra Class is dedicated to empowering students through online tutoring, study materials, and personalized support. Our mission is to make learning accessible, engaging, and effective for everyone.</p>
+  <p>We value excellence, commitment, and continuous improvement to help our students reach their full potential.</p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-4">
+  <p>&copy; 2025 Muna Extra Class. All Rights Reserved.</p>
+  <div class="footer-social">
+    <i class="fab fa-facebook-f mx-2"></i>
+    <i class="fab fa-twitter mx-2"></i>
+    <i class="fab fa-instagram mx-2"></i>
+    <i class="fab fa-linkedin-in mx-2"></i>
+  </div>
+</footer>
+
+<!-- Scroll to top button -->
+<button id="scrollTopBtn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Scroll to top
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.onscroll = function() {scrollFunction(); counterAnim()};
+  function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  }
+  function scrollToTop() {
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Counters
+  let countersStarted = false;
+  function counterAnim() {
+    const counters = document.querySelectorAll('.counter');
+    const triggerBottom = window.innerHeight;
+    counters.forEach(counter => {
+      const top = counter.getBoundingClientRect().top;
+      if(top < triggerBottom && !countersStarted) {
+        countersStarted = true;
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 200;
+            if(count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target;
+            }
+          }
+          updateCount();
+        });
+      }
+    });
+  }
+
+  // Booking Form JS
+  const bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    document.getElementById('formMessage').innerHTML = `<div class="alert alert-success">Thank you, ${name}! We received your request. We will contact you via email: ${email}.</div>`;
+    bookingForm.reset();
+  });
+</script>
+</body>
+</html>
